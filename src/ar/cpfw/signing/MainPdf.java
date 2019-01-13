@@ -48,7 +48,6 @@ public class MainPdf {
 		String alias = keyStore.aliases().nextElement();
 		PrivateKey pk = (PrivateKey) keyStore.getKey(alias, null);
 		Certificate[] chain = keyStore.getCertificateChain(alias);								
-		
 		sign(SRC, String.format(DEST, 1), chain, pk, DigestAlgorithms.SHA256, provider.getName(),
 				PdfSigner.CryptoStandard.CMS, "firmar", "Río Negro");
 	}
