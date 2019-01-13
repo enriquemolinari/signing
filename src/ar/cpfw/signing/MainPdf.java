@@ -1,4 +1,4 @@
-package ar.pjrn.firma;
+package ar.cpfw.signing;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -42,7 +42,7 @@ public class MainPdf {
 
 //		Hardcoded password
 		KeyStore keyStore = KeyStore.getInstance("PKCS11", provider);
-		char[] pin = { 'R', 'u', 's', 'i', 'a', '2', '0', '1', '8' };
+		char[] pin = {  };
 		keyStore.load(null, pin);
 
 		String alias = keyStore.aliases().nextElement();
