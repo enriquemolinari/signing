@@ -20,7 +20,7 @@ byte[] signValue = tokenUnix.signText("text to sign...", "passwordOfMyUsbToken")
 
 //Validate the signature
 boolean valid = new Notary().verifySignature("text to sign...".getBytes(), signValue, 
-																			tokenUnix.publicKey("passwordOfMyUsbToken"));
+                                                               tokenUnix.publicKey("passwordOfMyUsbToken"));
 
 System.out.println("is valid?: " + valid);
 		
