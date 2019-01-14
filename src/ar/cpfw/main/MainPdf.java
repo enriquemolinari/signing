@@ -1,4 +1,4 @@
-package ar.cpfw.signing;
+package ar.cpfw.main;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,8 +27,8 @@ import sun.security.pkcs11.SunPKCS11;
 
 public class MainPdf {
 
-	public static final String SRC = "./resources/Programa_BDII2_NoSQL.pdf";
-    public static final String DEST = "./resources/Programa_BDII2_NoSQL_signed.pdf";
+	public static final String SRC = "./resources/hello.pdf";
+    public static final String DEST = "./resources/hello_signed.pdf";
 
 	public static void main(String args[]) throws Exception {
 		File tmpConfigFile = File.createTempFile("pkcs11-", "conf");

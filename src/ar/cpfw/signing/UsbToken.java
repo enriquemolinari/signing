@@ -74,6 +74,28 @@ public class UsbToken {
 	public byte[] signText(String textToSign, String tokenPassword) {	
 		return this.signText(textToSign, tokenPassword, DEFAULT_SIGNATURE_ALGORITHM);
 	}
+
+//	public void signPdf(String src, String dest, String tokenPassword, String reason, String location) {
+//		
+//		KeyStore keyStore = retrieveKeyStore(tokenPassword);
+//		PrivateKey privateKey = (PrivateKey) keyStore.getKey(keyStore.aliases().nextElement(), null);
+//
+//		
+//		// Creating the reader and the signer
+//		PdfReader reader = new PdfReader(src);
+//		PdfSigner signer = new PdfSigner(reader, new FileOutputStream(dest), new StampingProperties());
+//		// Creating the appearance
+//		PdfSignatureAppearance appearance = signer.getSignatureAppearance().setReason(reason).setLocation(location)
+//				.setReuseAppearance(false);
+//		Rectangle rect = new Rectangle(36, 648, 200, 100);
+//		appearance.setPageRect(rect).setPageNumber(1);
+//		signer.setFieldName("sig");
+//		// Creating the signature
+//		IExternalSignature pks = new PrivateKeySignature(pk, DEFAULT_SIGNATURE_ALGORITHM, provider);
+//		IExternalDigest digest = new BouncyCastleDigest();
+//		signer.signDetached(digest, pks, chain, null, null, null, 0, subfilter);
+//
+//	}
 	
 	private KeyStore retrieveKeyStore(String tokenPassword) throws Exception {
 		Objects.nonNull(tokenPassword);
