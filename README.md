@@ -10,20 +10,20 @@ This is a pretty small Java8 project to help demonstrate how to sign text or a p
 
 ## Example Usage
 ```java
-	// Create the instance which require the path of the library file, provided by the vendor.
-	UsbToken tokenUnix = new UsbToken("/my/path/library.so");
-	// windows library
-	// UsbToken tokenWin = new UsbToken("c:\\my\\path\\library.dll");
+// Create the instance which require the path of the library file, provided by the vendor.
+UsbToken tokenUnix = new UsbToken("/my/path/library.so");
+// windows library
+// UsbToken tokenWin = new UsbToken("c:\\my\\path\\library.dll");
 
-	//Sign text
-	byte[] signValue = tokenUnix.signText("text to sign...", "passwordOfMyUsbToken");
+//Sign text
+byte[] signValue = tokenUnix.signText("text to sign...", "passwordOfMyUsbToken");
 
-	//Validate the signature
-	boolean valid = new Notary().verifySignature("text to sign...".getBytes(), signValue,
-				tokenUnix.publicKey("passwordOfMyUsbToken"));
+//Validate the signature
+boolean valid = new Notary().verifySignature("text to sign...".getBytes(), signValue, 
+																			tokenUnix.publicKey("passwordOfMyUsbToken"));
 
-	System.out.println("is valid?: " + valid);
+System.out.println("is valid?: " + valid);
 		
-	//Signing a PDF File
-	tokenUnix.signPdf("/tmp/pdftoSign.pdf", "/tmp/signedPdf.pdf", "passwordOfMyUsbToken", "anyReason", "anylocation");
+//Signing a PDF File
+tokenUnix.signPdf("/tmp/pdftoSign.pdf", "/tmp/signedPdf.pdf", "passwordOfMyUsbToken", "reason", "location");
 ```
