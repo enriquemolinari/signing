@@ -21,7 +21,7 @@ UsbToken tokenUnix = new UsbToken("/my/path/library.so");
 byte[] signValue = tokenUnix.signText("text to sign...", "passwordOfMyUsbToken");
 
 //Validate the signature
-boolean valid = new Notary().verifySignature("text to sign...".getBytes(), signValue, 
+boolean valid = new Notary().verifySignature("signed text...".getBytes(), signValue, 
                                                                tokenUnix.publicKey("passwordOfMyUsbToken"));
 
 System.out.println("is valid?: " + valid);
