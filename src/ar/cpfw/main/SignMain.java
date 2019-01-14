@@ -5,6 +5,9 @@ import ar.cpfw.signing.UsbToken;
 
 public class SignMain {
 
+	public static final String SRC = "./resources/hello.pdf";
+    public static final String DEST = "./resources/hello_signed.pdf";
+
 	public static void main(String[] args) throws Exception {
 
 		// linux library
@@ -19,5 +22,9 @@ public class SignMain {
 				tokenUnix.publicKey("passwordOfMyUsbToken"));
 
 		System.out.println("is valid?: " + valid);
+		
+		//pdf signing
+		tokenUnix.signPdf(SRC, DEST, "passwordOfMyUsbToken", "anyReason", "anylocation");
+
 	}
 }
