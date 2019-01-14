@@ -50,11 +50,16 @@ public class UsbToken {
 	
 			return new SunPKCS11(tmpConfigFile.getAbsolutePath());
 		} catch(Exception e) {
-			throw new RuntimeException(e);
+			throw new RuntimeException("Ups, something went wrong... ", e);
 		}
 	}
 
-	
+	/**
+	 * Retrieve the public key from the usb token.
+	 * 
+	 * @return PublicKey 
+	 * @param tokenPassword
+	 * */
 	public PublicKey publicKey(String tokenPassword) {	
 		try {
 			KeyStore keyStore = retrieveKeyStore(tokenPassword);
@@ -103,6 +108,15 @@ public class UsbToken {
 		return this.signText(textToSign, tokenPassword, DEFAULT_SIGNATURE_ALGORITHM);
 	}
 
+	/**
+	 * Digital Sign a PDF. It use itext7.
+	 * 
+	 * @param src source path of the Pdf to be signed.
+	 * @param dest destination path of the signed Pdf.
+	 * @param tokenPassword
+	 * @param reason Reason to sign, it will be displayed in a signature box inside de pdf.
+	 * @param location it will be displayed in a signature box inside de pdf.
+	 * */
 	public void signPdf(String src, String dest, String tokenPassword, String reason, String location) {
 		try { 
 			KeyStore keyStore = retrieveKeyStore(tokenPassword);
@@ -123,7 +137,7 @@ public class UsbToken {
 			IExternalDigest digest = new BouncyCastleDigest();
 			signer.signDetached(digest, pks, keyStore.getCertificateChain(alias), null, null, null, 0, PdfSigner.CryptoStandard.CMS);
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new RuntimeException("Ups, something went wrong... ", e);
 		}
 	}
 	
