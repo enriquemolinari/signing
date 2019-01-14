@@ -2,6 +2,8 @@
 
 This is a pretty small Java8 project to help demonstrate how to sign text or a pdf using a Token USB.
 
+Pequeño proyecto en Java8 para demostrar como firmar digitalmente texto o archivos pdf utilizando un Token USB.
+
 ## Set up
 
 1. Clone the repository
